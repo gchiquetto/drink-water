@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+.main{
+    height: 100vh;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-rows: repeat(2, 1fr) min-content 1fr min-content;
+    grid-template-columns: [space1-start] 1fr [space1-end content-start] min-content [content-end space2-start] 1fr [space2-end];
+}
