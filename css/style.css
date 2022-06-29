@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; }
+
+.main {
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: repeat(2, 5rem) 1fr 5rem 1fr;
+  grid-template-columns: [space1-start] 1fr [space1-end content-start] max-content [content-end space2-start] 1fr [space2-end];
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  background-color: #0BA9D4;
+  color: #F8FDFF;
+  padding: 6rem;
+  font-weight: 400; }
+
+.main > * {
+  grid-column: content-start / content-end; }
+
+.heading-1 {
+  grid-row: 1 / 2;
+  font-size: 4.6rem; }
+
+.subtitle {
+  grid-row: 2/3;
+  font-size: 2.4rem;
+  font-weight: inherit; }
+
+.heading-3 {
+  grid-row: 4 / 5; }
+
+.big-cup_container {
+  grid-row: 3 / 4;
+  background-color: #F8FDFF;
+  color: #03256C;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  height: 100%;
+  width: 30%; }
+
+.cups_container {
+  grid-row: 4/-1; }
