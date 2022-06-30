@@ -2,6 +2,7 @@
 $color-blue-light-1:#0BA9D4;
 $color-blue-dark-1:#03256C;
 $color-white:#F8FDFF;
+$inital-filled-value:0;
 
 *,
 *::before,
@@ -18,18 +19,22 @@ html{
 
 .main{
     height: 100vh;
+    padding: 3rem;
     overflow: hidden;
+
     display: grid;
     grid-template-rows: repeat(2, 5rem) 1fr 5rem 1fr;
     grid-template-columns: [space1-start] 1fr [space1-end content-start] max-content [content-end space2-start] 1fr [space2-end];
-    font-family: 'Montserrat', sans-serif;
     align-items: center;
     justify-items: center;
+
+
+    font-family: 'Montserrat', sans-serif;    
     text-align: center;
-    background-color: $color-blue-light-1;
-    color:$color-white;
-    padding: 6rem;
     font-weight: 400;
+
+    background-color: $color-blue-light-1;
+    color:$color-white;    
 }
 
 .main > * {
@@ -51,19 +56,74 @@ html{
 
 .heading-3{
     grid-row: 4 / 5; 
+    font-size: 1.4rem;
+}
+
+.cup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    border-bottom-left-radius: 15% ;
+    border-bottom-right-radius: 15% ;
+
+    background-color: $color-white;
+    color: $color-blue-dark-1;
+    box-shadow: 0 2px 5px rgba($color: #000000, $alpha: .2);
+
+    transition: all .5s;
+
+    &--active{
+        color: $color-white;
+        background-color: $color-blue-dark-1;
+    }
 }
 
 .big-cup_container{
+    gap:1rem;
     grid-row: 3 / 4 ;
-    background-color: $color-white;
-    color: $color-blue-dark-1;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    border-bottom-left-radius: 50% ;
-    border-bottom-right-radius: 50% ;
-    height: 100%;
-    width: 30%;
+    height: 30rem;
+    width: 40%;
+    z-index: 0;
+
+    display: grid;
+    grid-template-rows: repeat(8,1fr);
+    grid-template-columns: 1fr;
+    position: relative;
+    transition: all .4s;
+
+    #qtd_remained{
+        position: relative;
+        z-index: 2;
+        grid-row: 4/5;
+        grid-column: 1/-1;
+    }
+
+    .filled{
+        position: relative;
+        grid-row: $inital-filled-value/-1;
+        grid-column: 1/-1;
+        z-index: 1;
+        background-color: $color-blue-dark-1;    
+    }
+
 }
 
 .cups_container{
     grid-row: 4/-1;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    width: 100%;
+    height: 18rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.small-cup_container{
+    height: 7rem;
+    width: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
