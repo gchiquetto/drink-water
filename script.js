@@ -1,6 +1,11 @@
 const cups = document.querySelectorAll('.small-cup_container');
 const qtdRemained = document.getElementById('qtd_remained');
-const bigCup = document.querySelector('big-cup_container');
+const bigCup = document.querySelector('.big-cup_container');
+
+const cupFilled = document.createElement('div');
+cupFilled.classList.add('filled');
+bigCup.appendChild(cupFilled);
+document.documentElement.style.setProperty("--initial-filled-value",  '1');
 
 cups.forEach((cup, index) => {
     let selectedCups;
@@ -10,16 +15,18 @@ cups.forEach((cup, index) => {
 
         selectedCups = [...cups].filter((cup, i) => i <= index);
         selectedCups.forEach(item => item.classList.add('cup--active'));
-        updateQtd(selectedCups);
+        updateQtd(selectedCups, index);
 
     });
 
 });
 
-function updateQtd(cups){
+function updateQtd(cups, index){
+ 
     const qtdCups = cups.length;
     const remainedLiters =  2 - qtdCups*0.250;
+    index > 3 ? document.documentElement.style.setProperty("--color",  '#F8FDFF') : document.documentElement.style.setProperty("--color",  '#03256C');
+    document.documentElement.style.setProperty("--initial-filled-value",  `${8 - index}`);        
     qtdRemained.textContent = `${remainedLiters}L`;
-    console.log(remainedLiters);
 
 }

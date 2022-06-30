@@ -2,7 +2,11 @@
 $color-blue-light-1:#0BA9D4;
 $color-blue-dark-1:#03256C;
 $color-white:#F8FDFF;
-$inital-filled-value:0;
+
+root{
+    --initial-filled-value: 1; 
+    --color: $color-blue-dark-1; 
+}
 
 *,
 *::before,
@@ -45,6 +49,16 @@ html{
 .heading-1{
     grid-row: 1 / 2;
     font-size: 4.6rem;
+    text-shadow: 0 2px 4px rgba($color: #000000, $alpha: .4);
+    
+}
+
+.heading-2{
+    grid-row: 4 / 5;
+    grid-column: 1/-1;
+    z-index: 2;
+    color: var(--color);
+
     
 }
 
@@ -92,8 +106,10 @@ html{
     grid-template-columns: 1fr;
     position: relative;
     transition: all .4s;
+    overflow: hidden; 
 
-    #qtd_remained{
+
+    .qtd_remained{
         position: relative;
         z-index: 2;
         grid-row: 4/5;
@@ -102,10 +118,10 @@ html{
 
     .filled{
         position: relative;
-        grid-row: $inital-filled-value/-1;
-        grid-column: 1/-1;
+        grid-row: var(--initial-filled-value) / -1; 
+        grid-column: 1 / -1;
         z-index: 1;
-        background-color: $color-blue-dark-1;    
+        background-color: $color-blue-dark-1;
     }
 
 }

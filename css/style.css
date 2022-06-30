@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+root {
+  --initial-filled-value: 1;
+  --color: $color-blue-dark-1; }
+
 *,
 *::before,
 *::after {
@@ -30,7 +34,14 @@ html {
 
 .heading-1 {
   grid-row: 1 / 2;
-  font-size: 4.6rem; }
+  font-size: 4.6rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); }
+
+.heading-2 {
+  grid-row: 4 / 5;
+  grid-column: 1/-1;
+  z-index: 2;
+  color: var(--color); }
 
 .subtitle {
   grid-row: 2/3;
@@ -66,16 +77,17 @@ html {
   grid-template-rows: repeat(8, 1fr);
   grid-template-columns: 1fr;
   position: relative;
-  transition: all .4s; }
-  .big-cup_container #qtd_remained {
+  transition: all .4s;
+  overflow: hidden; }
+  .big-cup_container .qtd_remained {
     position: relative;
     z-index: 2;
     grid-row: 4/5;
     grid-column: 1/-1; }
   .big-cup_container .filled {
     position: relative;
-    grid-row: 0;
-    grid-column: 1/-1;
+    grid-row: var(--initial-filled-value)/-1;
+    grid-column: 1 / -1;
     z-index: 1;
     background-color: #03256C; }
 
