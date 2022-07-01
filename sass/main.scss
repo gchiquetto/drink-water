@@ -56,11 +56,10 @@ html{
 }
 
 .heading-2{
-    grid-row: var(--remained-row) / span 1;
-    grid-column: 1/-1;
+    
     z-index: 2;
     color: var(--color);
-    display: var(--remained-display);
+    
 }
 
 .subtitle{
@@ -109,14 +108,6 @@ html{
     transition: all .4s;
     overflow: hidden; 
 
-
-    .qtd_remained{
-        position: relative;
-        z-index: 2;
-        grid-row: 4/5;
-        grid-column: 1/-1;
-    }
-
     .filled{
         position: relative;
         grid-row: var(--filled-row) / -1; 
@@ -125,6 +116,12 @@ html{
         background-color: $color-blue-dark-1;
     }
 
+}
+
+.qtd_remained{
+    grid-row: var(--remained-row) / span 1;
+    grid-column: 1/-1;
+    display: var(--remained-display);
 }
 
 .cups_container{
