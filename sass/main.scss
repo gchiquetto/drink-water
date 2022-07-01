@@ -3,9 +3,11 @@ $color-blue-light-1:#0BA9D4;
 $color-blue-dark-1:#03256C;
 $color-white:#F8FDFF;
 
-root{
-    --initial-filled-value: 1; 
-    --color: $color-blue-dark-1; 
+:root{
+    --remained-row: 5;
+    --filled-row: 1; 
+    --color: $color-blue-dark-1;   
+    --remained-display: inline-block;  
 }
 
 *,
@@ -54,12 +56,11 @@ html{
 }
 
 .heading-2{
-    grid-row: 4 / 5;
+    grid-row: var(--remained-row) / span 1;
     grid-column: 1/-1;
     z-index: 2;
     color: var(--color);
-
-    
+    display: var(--remained-display);
 }
 
 .subtitle{
@@ -118,7 +119,7 @@ html{
 
     .filled{
         position: relative;
-        grid-row: var(--initial-filled-value) / -1; 
+        grid-row: var(--filled-row) / -1; 
         grid-column: 1 / -1;
         z-index: 1;
         background-color: $color-blue-dark-1;
